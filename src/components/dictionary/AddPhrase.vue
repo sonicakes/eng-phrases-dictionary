@@ -19,7 +19,7 @@ export default {
       this.error = null;
     //   axios
     //     .post(
-    //       '',
+    //       'https://english-phrases-dictionary-default-rtdb.firebaseio.com/',
     //       {
     //         name: this.enteredName,
     //         rating: this.chosenRating
