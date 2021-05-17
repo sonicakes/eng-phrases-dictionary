@@ -1,5 +1,14 @@
 # dictionary
 
+
+### New phrases english dictionary
+##### Goals:
+
+- add phrases that are new to me day to day; 
+- view the list of phrases; add a new one; 
+- delete a phrase; edit a phrase; 
+- find synonyms for a phrase
+
 ## Project setup
 ```
 npm install
