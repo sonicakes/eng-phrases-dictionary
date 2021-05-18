@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <AddPhrase @added-phrase="phraseAdd" />
-          <PhrasesList :refresh="isRefreshed" />
+          <AddPhrase />
+          <PhrasesList />
         </div>
       </div>
     </div>
@@ -20,17 +20,7 @@ export default {
   components: {
     PhrasesList,
     AddPhrase,
-  },
-  data() {
-    return {
-      isRefreshed: false,
-    };
-  },
-  methods: {
-    phraseAdd() {
-      this.isRefreshed = true;
-    },
-  },
+  }
 };
 </script>
 
