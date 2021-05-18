@@ -16,17 +16,53 @@
 
 <script>
 import PhraseDetail from "./PhraseDetail";
+import axios from 'axios';
+
 export default {
-  props: ["phrases"],
   mounted() {
-    // this.loadExperiences();
+     this.loadPhrases();
   },
   components: {
     PhraseDetail,
   },
+  props:['refresh'],
+  methods: {
+ loadPhrases() {
+      this.error = null;
+      axios
+        .get(
+          'https://english-phrases-dictionary-default-rtdb.firebaseio.com/phrases.json'
+        )
+        .then(response => {
+          if (response.status === 200) {
+            return response;
+          }
+        })
+
+        .then(response => {
+          const results = [];
+          for (const id in response.data) {
+            results.unshift({
+              id: id,
+              title: response.data[id].title,
+              description: response.data[id].description,
+              source: response.data[id].source,
+              imgLink: response.data[id].imgLink
+            });
+          }
+          this.phrases = results;
+        })
+
+        .catch(error => {
+          console.log(error);
+          this.error = 'Falied to fetch data - try again later.';
+        });
+    }
+  },
   data() {
     return {
       error: null,
+      phrases: []
     };
   },
 };
