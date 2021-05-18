@@ -1,54 +1,46 @@
 <template>
-   <section>
-       <h3>List of added phrases</h3>
+  <section class="phrases-list">
+    <h3>List of added phrases</h3>
     <div class="card-deck">
-        <PhraseDetail
-          v-for="phrase in phrases"
-          :key="phrase.id"
-          :title="phrase.title"
-          :description="phrase.description"
-          :source="phrase.source"
-        ></PhraseDetail>
+      <PhraseDetail
+        v-for="phrase in phrases"
+        :key="phrase.id"
+        :title="phrase.title"
+        :description="phrase.description"
+        :source="phrase.source"
+        :imgUrl="phrase.imgLink"
+      ></PhraseDetail>
     </div>
-   </section>
+  </section>
 </template>
 
 <script>
-import PhraseDetail from './PhraseDetail';
+import PhraseDetail from "./PhraseDetail";
 export default {
-    mounted() {
+  props: ["phrases"],
+  mounted() {
     // this.loadExperiences();
   },
-  components : {
-PhraseDetail
+  components: {
+    PhraseDetail,
   },
   data() {
-      return {
-      phrases: [
-          {
-              title: 'Beat around the bush',
-              description: 'to avoid talking about what is important (Cambridge dictionary online)',
-              source: 'visual'
-          },
-             {
-              title: 'Go the extra mile',
-              description: 'make a special effort to achieve something (Oxford dictionary online)',
-              source: 'audio'
-          },
-               {
-              title: 'When pigs fly',
-              description: 'something that will never happen (theidioms.com)',
-              source: 'translation'
-          },
-      ],
-      error: null
-      }
-  }  
-}
+    return {
+      error: null,
+    };
+  },
+};
 </script>
 
 <style scoped>
-ul {
-   list-style-type: none !important;
+.phrases-list {
+  margin-top: 20px;
+}
+
+@media (min-width: 576px) {
+  .card-deck .card {
+    flex: 40%;
+    margin-bottom: 20px;
+  }
 }
 </style>
