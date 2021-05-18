@@ -9,7 +9,11 @@
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{ description }}</p>
       <p class="card-text">
+        source:
         <b>{{ source }}</b>
+      </p>
+      <p class="muted">
+        Added on <i>{{ date }}</i>
       </p>
     </div>
   </div>
@@ -17,7 +21,7 @@
 
 <script>
 export default {
-  props: ["title", "description", "source", "imgUrl"],
+  props: ["title", "description", "source", "imgUrl", "date"],
 };
 </script>
 

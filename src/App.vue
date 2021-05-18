@@ -20,7 +20,7 @@ export default {
   components: {
     PhrasesList,
     AddPhrase,
-  }
+  },
 };
 </script>
 

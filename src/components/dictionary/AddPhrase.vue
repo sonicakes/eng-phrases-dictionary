@@ -90,6 +90,10 @@
           v-model="imgLink"
         />
       </div>
+      <div class="form-group">
+        <label for="date">Date today</label>
+        <p>{{ todayDate }}</p>
+      </div>
       <button type="submit" class="btn btn-primary">Add</button>
     </form>
   </div>
@@ -99,6 +103,13 @@
 import axios from "axios";
 
 export default {
+  computed: {
+    todayDate() {
+      var d = new Date();
+      var altered = d.toLocaleString();
+      return altered;
+    },
+  },
   methods: {
     addPhrase() {
       // using axios
@@ -113,6 +124,7 @@ export default {
             source: this.source,
             description: this.description,
             imgLink: this.imgLink,
+            date: this.todayDate,
           }
         )
         .then(function(response) {
@@ -132,6 +144,7 @@ export default {
       this.source = null;
       this.description = "";
       this.imgLink = "";
+      this.date = "";
 
       //updating data in the list when the new one is added
       this.$emit("added-phrase");
@@ -149,6 +162,7 @@ export default {
       imgLink: "",
       error: null,
       added: false,
+      date: "",
     };
   },
 };

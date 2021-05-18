@@ -9,6 +9,7 @@
         :description="phrase.description"
         :source="phrase.source"
         :imgUrl="phrase.imgLink"
+        :date="phrase.date"
       ></PhraseDetail>
     </div>
   </section>
@@ -42,12 +43,13 @@ export default {
         .then((response) => {
           const results = [];
           for (const id in response.data) {
-            results.unshift({
+            results.push({
               id: id,
               title: response.data[id].title,
               description: response.data[id].description,
               source: response.data[id].source,
               imgLink: response.data[id].imgLink,
+              date: response.data[id].date,
             });
           }
           this.phrases = results;
