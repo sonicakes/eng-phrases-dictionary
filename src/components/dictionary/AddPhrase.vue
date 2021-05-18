@@ -73,7 +73,7 @@
           type="radio"
           name="sourceAcquired"
           id="translation"
-          value="audio"
+          value="translation"
           v-model="source"
         />
         <label class="form-check-label" for="translation">

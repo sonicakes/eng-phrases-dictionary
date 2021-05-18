@@ -6,7 +6,7 @@
       alt="Image related to the phrase"
     />
     <div class="card-body">
-      <h5 class="card-title">{{ title }}</h5>
+      <h5 class="card-title text-info font-weight-bold">{{ title }}</h5>
       <p class="card-text">{{ description }}</p>
       <p class="card-text">
         source:
