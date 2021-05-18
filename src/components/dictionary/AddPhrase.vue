@@ -1,17 +1,17 @@
 <template>
   <div>
     <h3>add a new phrase</h3>
-  <div class="alert alert-success" role="alert" v-if="added">
-            Successfully added a new phrase!
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+    <div class="alert alert-success" role="alert" v-if="added">
+      Successfully added a new phrase!
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
     <form @submit.prevent="addPhrase">
       <div class="form-group">
@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   methods: {
@@ -105,28 +105,28 @@ export default {
       this.error = null;
       this.added = true;
       this.removeAlert();
-        axios
-          .post(
-            'https://english-phrases-dictionary-default-rtdb.firebaseio.com/phrases.json',
-            {
-                 title: this.title,
-                 source: this.source,
-                 description: this.description,
-                 imgLink: this.imgLink
-            }
-          )
-          .then(function(response) {
-            console.log(response);
-            if (response.status === 200) {
-              ///display success alert
-            } else {
-              throw new Error('could not save data');
-            }
-          })
-          .catch(error => {
-            console.log(error);
-            this.error = error.message;
-          });
+      axios
+        .post(
+          "https://english-phrases-dictionary-default-rtdb.firebaseio.com/phrases.json",
+          {
+            title: this.title,
+            source: this.source,
+            description: this.description,
+            imgLink: this.imgLink,
+          }
+        )
+        .then(function(response) {
+          console.log(response);
+          if (response.status === 200) {
+            ///display success alert
+          } else {
+            throw new Error("could not save data");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.error = error.message;
+        });
 
       this.title = "";
       this.source = null;
@@ -138,7 +138,7 @@ export default {
     },
     removeAlert() {
       setTimeout(() => (this.added = false), 3000);
-    }
+    },
   },
 
   data() {
@@ -148,7 +148,7 @@ export default {
       description: "",
       imgLink: "",
       error: null,
-      added: false
+      added: false,
     };
   },
 };

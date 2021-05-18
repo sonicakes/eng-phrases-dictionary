@@ -16,30 +16,30 @@
 
 <script>
 import PhraseDetail from "./PhraseDetail";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   mounted() {
-     this.loadPhrases();
+    this.loadPhrases();
   },
   components: {
     PhraseDetail,
   },
-  props:['refresh'],
+  props: ["refresh"],
   methods: {
- loadPhrases() {
+    loadPhrases() {
       this.error = null;
       axios
         .get(
-          'https://english-phrases-dictionary-default-rtdb.firebaseio.com/phrases.json'
+          "https://english-phrases-dictionary-default-rtdb.firebaseio.com/phrases.json"
         )
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             return response;
           }
         })
 
-        .then(response => {
+        .then((response) => {
           const results = [];
           for (const id in response.data) {
             results.unshift({
@@ -47,22 +47,23 @@ export default {
               title: response.data[id].title,
               description: response.data[id].description,
               source: response.data[id].source,
-              imgLink: response.data[id].imgLink
+              imgLink: response.data[id].imgLink,
             });
           }
           this.phrases = results;
+          this.loadPhrases();
         })
 
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
-          this.error = 'Falied to fetch data - try again later.';
+          this.error = "Falied to fetch data - try again later.";
         });
-    }
+    },
   },
   data() {
     return {
       error: null,
-      phrases: []
+      phrases: [],
     };
   },
 };

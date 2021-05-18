@@ -3,9 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
-        
-          <AddPhrase @added-phrase="phraseAdd"/>
-          <PhrasesList :refresh="isRefreshed"/>
+          <AddPhrase @added-phrase="phraseAdd" />
+          <PhrasesList :refresh="isRefreshed" />
         </div>
       </div>
     </div>
@@ -24,21 +23,13 @@ export default {
   },
   data() {
     return {
-      isRefreshed: false
-      //   {
-      //     title: "When pigs fly",
-      //     description: "something that will never happen (theidioms.com)",
-      //     source: "translation",
-      //     imgLink:
-      //       "https://64.media.tumblr.com/47d1f45f3e4a26fc3e6b5c9720f1425e/tumblr_pbmex4OSWn1wa7o90o1_1280.jpg",
-      //   },
-      // ],
+      isRefreshed: false,
     };
   },
   methods: {
     phraseAdd() {
- this.isRefreshed = true;
-  }
+      this.isRefreshed = true;
+    },
   },
 };
 </script>
