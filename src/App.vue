@@ -1,24 +1,27 @@
 <template>
   <div id="app">
-   <PhraseDetail />
-   <PhraseList />
-   <AddPhrase />
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <AddPhrase />
+          <PhraseList />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import PhraseDetail from './components/dictionary/PhraseDetail';
-import PhraseList from './components/dictionary/PhrasesList';
-import AddPhrase from './components/dictionary/AddPhrase';
+import PhraseList from "./components/dictionary/PhrasesList";
+import AddPhrase from "./components/dictionary/AddPhrase";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    PhraseDetail,
     PhraseList,
-    AddPhrase
-  }
-}
+    AddPhrase,
+  },
+};
 </script>
 
 <style>
