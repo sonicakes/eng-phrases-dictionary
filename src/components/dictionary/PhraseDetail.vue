@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img
+    <img v-if="imgUrl"
       class="card-img-top"
       v-bind:src="imgUrl"
       alt="Image related to the phrase"
